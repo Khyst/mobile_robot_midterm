@@ -1,0 +1,12 @@
+{
+    "cmake.sourceDirectory": "/home/ubuntu/dsc_ws/src",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "files.associations": {
+        "iosfwd": "cpp"
+    }
+}
