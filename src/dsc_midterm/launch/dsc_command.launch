@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="dsc_midterm" type="practice_publisher_1" name="publisher_1" output="screen"/>
+</launch>

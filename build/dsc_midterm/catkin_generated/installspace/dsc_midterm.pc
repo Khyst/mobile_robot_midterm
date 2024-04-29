@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/dsc_ws/install
+
+Name: dsc_midterm
+Description: Description of dsc_midterm
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

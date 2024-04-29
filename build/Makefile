@@ -90,6 +90,28 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -112,28 +134,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,19 +166,6 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named node_1_2
-
-# Build rule for target.
-node_1_2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 node_1_2
-.PHONY : node_1_2
-
-# fast build rule for target.
-node_1_2/fast:
-	$(MAKE) -f CMakeFiles/node_1_2.dir/build.make CMakeFiles/node_1_2.dir/build
-.PHONY : node_1_2/fast
 
 #=============================================================================
 # Target rules for targets named tests
@@ -246,19 +233,6 @@ doxygen/fast:
 .PHONY : doxygen/fast
 
 #=============================================================================
-# Target rules for targets named node_1_1
-
-# Build rule for target.
-node_1_1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 node_1_1
-.PHONY : node_1_1
-
-# fast build rule for target.
-node_1_1/fast:
-	$(MAKE) -f CMakeFiles/node_1_1.dir/build.make CMakeFiles/node_1_1.dir/build
-.PHONY : node_1_1/fast
-
-#=============================================================================
 # Target rules for targets named gmock_main
 
 # Build rule for target.
@@ -310,6 +284,331 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+#=============================================================================
+# Target rules for targets named midterm_node1_2
+
+# Build rule for target.
+midterm_node1_2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 midterm_node1_2
+.PHONY : midterm_node1_2
+
+# fast build rule for target.
+midterm_node1_2/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/midterm_node1_2.dir/build.make dsc_midterm/CMakeFiles/midterm_node1_2.dir/build
+.PHONY : midterm_node1_2/fast
+
+#=============================================================================
+# Target rules for targets named midterm_node1_1
+
+# Build rule for target.
+midterm_node1_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 midterm_node1_1
+.PHONY : midterm_node1_1
+
+# fast build rule for target.
+midterm_node1_1/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/midterm_node1_1.dir/build.make dsc_midterm/CMakeFiles/midterm_node1_1.dir/build
+.PHONY : midterm_node1_1/fast
+
+#=============================================================================
+# Target rules for targets named practice_multi_subscriber
+
+# Build rule for target.
+practice_multi_subscriber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_multi_subscriber
+.PHONY : practice_multi_subscriber
+
+# fast build rule for target.
+practice_multi_subscriber/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_multi_subscriber.dir/build.make dsc_midterm/CMakeFiles/practice_multi_subscriber.dir/build
+.PHONY : practice_multi_subscriber/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_py
+
+# Build rule for target.
+roscpp_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
+.PHONY : roscpp_generate_messages_py
+
+# fast build rule for target.
+roscpp_generate_messages_py/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/roscpp_generate_messages_py.dir/build.make dsc_midterm/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named midterm_node2
+
+# Build rule for target.
+midterm_node2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 midterm_node2
+.PHONY : midterm_node2
+
+# fast build rule for target.
+midterm_node2/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/midterm_node2.dir/build.make dsc_midterm/CMakeFiles/midterm_node2.dir/build
+.PHONY : midterm_node2/fast
+
+#=============================================================================
+# Target rules for targets named practice_subscriber_1
+
+# Build rule for target.
+practice_subscriber_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_subscriber_1
+.PHONY : practice_subscriber_1
+
+# fast build rule for target.
+practice_subscriber_1/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_subscriber_1.dir/build.make dsc_midterm/CMakeFiles/practice_subscriber_1.dir/build
+.PHONY : practice_subscriber_1/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/roscpp_generate_messages_eus.dir/build.make dsc_midterm/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named practice_node_1
+
+# Build rule for target.
+practice_node_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_node_1
+.PHONY : practice_node_1
+
+# fast build rule for target.
+practice_node_1/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_node_1.dir/build.make dsc_midterm/CMakeFiles/practice_node_1.dir/build
+.PHONY : practice_node_1/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_lisp
+
+# Build rule for target.
+roscpp_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make dsc_midterm/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named practice_publisher_1
+
+# Build rule for target.
+practice_publisher_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_publisher_1
+.PHONY : practice_publisher_1
+
+# fast build rule for target.
+practice_publisher_1/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_publisher_1.dir/build.make dsc_midterm/CMakeFiles/practice_publisher_1.dir/build
+.PHONY : practice_publisher_1/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_cpp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named practice_multi_publisher_1
+
+# Build rule for target.
+practice_multi_publisher_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_multi_publisher_1
+.PHONY : practice_multi_publisher_1
+
+# fast build rule for target.
+practice_multi_publisher_1/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_multi_publisher_1.dir/build.make dsc_midterm/CMakeFiles/practice_multi_publisher_1.dir/build
+.PHONY : practice_multi_publisher_1/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_lisp
+
+# Build rule for target.
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make dsc_midterm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_cpp
+
+# Build rule for target.
+roscpp_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make dsc_midterm/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_eus
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named practice_multi_publisher_2
+
+# Build rule for target.
+practice_multi_publisher_2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 practice_multi_publisher_2
+.PHONY : practice_multi_publisher_2
+
+# fast build rule for target.
+practice_multi_publisher_2/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/practice_multi_publisher_2.dir/build.make dsc_midterm/CMakeFiles/practice_multi_publisher_2.dir/build
+.PHONY : practice_multi_publisher_2/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make dsc_midterm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_nodejs
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_nodejs
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_py
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make dsc_midterm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_eus
+
+# Build rule for target.
+std_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make dsc_midterm/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_nodejs
+
+# Build rule for target.
+std_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make dsc_midterm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named midterm_node3
+
+# Build rule for target.
+midterm_node3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 midterm_node3
+.PHONY : midterm_node3
+
+# fast build rule for target.
+midterm_node3/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/midterm_node3.dir/build.make dsc_midterm/CMakeFiles/midterm_node3.dir/build
+.PHONY : midterm_node3/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_nodejs
+
+# Build rule for target.
+roscpp_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make dsc_midterm/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f dsc_midterm/CMakeFiles/std_msgs_generate_messages_py.dir/build.make dsc_midterm/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -319,9 +618,6 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... install/local"
-	@echo "... test"
-	@echo "... node_1_2"
 	@echo "... tests"
 	@echo "... rebuild_cache"
 	@echo "... download_extra_data"
@@ -329,11 +625,37 @@ help:
 	@echo "... run_tests"
 	@echo "... clean_test_results"
 	@echo "... doxygen"
-	@echo "... node_1_1"
+	@echo "... install/local"
+	@echo "... test"
 	@echo "... gmock_main"
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... midterm_node1_2"
+	@echo "... midterm_node1_1"
+	@echo "... practice_multi_subscriber"
+	@echo "... roscpp_generate_messages_py"
+	@echo "... midterm_node2"
+	@echo "... practice_subscriber_1"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... practice_node_1"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... practice_publisher_1"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... practice_multi_publisher_1"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... practice_multi_publisher_2"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... midterm_node3"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_py"
 .PHONY : help
 
 
