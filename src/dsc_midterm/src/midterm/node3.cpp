@@ -22,6 +22,7 @@ int main(int argc, char **argv){
     while(ros::ok()){
         
         std_msgs::Int32 msg;
+        
         msg.data = cmd_value + 100;
 
         feedback1_pub.publish(msg);
